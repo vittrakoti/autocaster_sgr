@@ -83,6 +83,7 @@ export async function switchScene(sceneName) {
   assertConnected();
   return getClient().call("SetCurrentProgramScene", { sceneName });
 }
+// Streaming controls
 export async function startStreaming() {
   assertConnected();
   return getClient().call("StartStream");
@@ -94,4 +95,18 @@ export async function stopStreaming() {
 export async function getStatus() {
   assertConnected();
   return getClient().call("GetStreamStatus");
+}
+
+//recording controls
+export async function startRecording() {
+  assertConnected();
+  return getClient().call("StartRecord");
+}
+export async function stopRecording() {
+  assertConnected();
+  return getClient().call("StopRecord");
+}
+export async function getRecordStatus() {
+  assertConnected();
+  return getClient().call("GetRecordStatus");
 }

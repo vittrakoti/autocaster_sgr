@@ -24,6 +24,9 @@ import {
   startStreaming,
   stopStreaming,
   getStatus,
+  startRecording, 
+  stopRecording, 
+  getRecordStatus,
 } from "../services/obs.service.js";
 
 /* ---------------------------
@@ -85,6 +88,9 @@ export function registerObsIpc(mainWindow) {
     "obs:startStreaming",
     "obs:stopStreaming",
     "obs:getStatus",
+    "obs:startRecording",
+    "obs:stopRecording",
+    "obs:getRecordStatus",
 
     "obs:getConfig",
     "obs:saveConfig",
@@ -182,7 +188,15 @@ export function registerObsIpc(mainWindow) {
     withLog("obs:stopStreaming", () => stopStreaming())
   );
 
+  ipcMain.handle("obs:getRecordStatus", withLog("obs:getRecordStatus", () => getRecordStatus()));
+
+  ipcMain.handle("obs:startRecording", withLog("obs:startRecording", () => startRecording()));
+
+  ipcMain.handle("obs:stopRecording", withLog("obs:stopRecording", () => stopRecording()));
+
   ipcMain.handle("obs:getStatus", withLog("obs:getStatus", () => getStatus()));
+
+  
 
   /* ---- Config ---- */
 

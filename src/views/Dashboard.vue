@@ -1,8 +1,14 @@
 <script setup>
-import ObsConnectStatus from '../assets/ui/Obs.connect.status.vue';
+import ObsConnectStatus from '../ui/Obs.connect.status.vue';
+import ObsSceneCollection from '../ui/ObsSceneCollection.vue';
 
 </script>
 
 <template>
-<ObsConnectStatus />
+    <div class="flex">
+
+        <ObsConnectStatus />
+        <ObsSceneCollection />
+    </div>
+
 </template>
